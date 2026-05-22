@@ -46,13 +46,13 @@ The original website used a vertical sidebar menu that occupied space on the lef
 
 ## Original Layout
 
-![Original Layout](sandbox:/mnt/data/old%20header.png)
+![Original Layout](./images/old-header.png)
 
 ---
 
 ## Edited Responsive Layout
 
-![Edited Responsive Layout](sandbox:/mnt/data/edited-header.png)
+![Edited Responsive Layout](./images/edited-header.png)
 
 ---
 
