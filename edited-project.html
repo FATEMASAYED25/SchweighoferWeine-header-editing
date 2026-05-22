@@ -1,0 +1,156 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body{
+            background-image:url(./WeinBackground.jpg);
+            background-position: center center;
+            background-size: cover;
+            margin: 0px;
+
+        }
+
+        
+        .header{
+            width:100%;
+            background-color: #fffffffc;
+            height: 70px;
+            display:flex;
+         
+
+        }
+        .icon{
+           display: flex;
+           margin: auto;
+           align-items: center;
+            gap: 20px;
+       
+        }
+        .logo{
+            font-size: 23px;
+            font-weight: bolder;
+            text-align: center;
+        }
+   
+        #menu{
+            width:30px;
+            height: 30px;
+        }
+
+        .nav-change{
+        position: fixed;
+        z-index: 50;
+        background-color: white;
+        height: 100%;
+        
+        }
+        /* Sidebar Menu */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Hide initially */
+    width: 250px;
+    height: 100%;
+    background: white;
+    color: black;
+    transition: 0.3s ease-in-out;
+    padding-top: 60px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 10px;
+    text-align: center;
+}
+
+.sidebar ul li {
+    padding: 10px;
+   
+}
+
+.sidebar ul li a {
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+
+    transition: 0.2s;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+.sidebar ul li a:hover {
+  
+    background: #444;
+    padding-left: 10px;
+    color: white;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: black;
+    cursor: pointer;
+}
+/* hidde the top header */ 
+
+.header.hidden{
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+    display: none;
+}
+
+
+/* Sidebar Active */
+.sidebar.active {
+    left: 0;
+}
+
+     
+
+
+    </style>
+
+
+    <div class="header"> 
+        <div class="icon">
+             <p class="logo">SchweighoferWeine.at</p>
+              
+               <img id="menu"src="./bars-solid.svg" onclick="toggleSidebar()">
+        </div>
+    </div>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+        <button class="close-btn" onclick="toggleSidebar()">×</button>
+         <p class="logo">SchweighoferWeine.at</p>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <script>
+      function toggleSidebar() {
+        let sidebar = document.getElementById("sidebar");
+        let header = document.querySelector(".header");
+
+    sidebar.classList.toggle("active");
+    header.classList.toggle("hidden"); // Hide or show the head
+}
+    </script>
+    
+</body>
+</html>

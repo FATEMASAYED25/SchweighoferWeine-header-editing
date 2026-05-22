@@ -1,0 +1,163 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        background-image: url(./WeinBackground.jpg);
+        background-position: center center;
+        background-size: cover;
+        margin: 0px;
+      }
+      .nav {
+        text-align: left;
+        position: fixed;
+        top: 0;
+        left: 0;
+        overflow-x: hidden;
+        background-color: white;
+      }
+      .nav li {
+        color: grey;
+        cursor: pointer;
+        text-decoration: none;
+        padding: 11px 0px 11px 36px;
+        display: block;
+      }
+      .nav li:hover {
+        color: black;
+      }
+      .showRD {
+        width: 90%;
+        background-color: white;
+        height: 70px;
+
+        display: none;
+      }
+    
+      .showRD img {
+        width: 50px;
+        height: 50px;
+        margin-left: auto; /* Push image to the right */
+      }
+      .showRD.hidden {
+        transform: translateY(-100%);
+        transition: transform 0.3s ease-in-out;
+        display: none;
+      }
+      .openNav{
+        background-color: white;
+  position: absolute;
+  right: 0px;
+  width: 10%;
+  height: 70px;
+  
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  display:none
+      }
+      .openNav img{
+
+        width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out; /* Smooth rotation */
+      }
+
+      /* Sidebar Active */
+      .nav.active {
+     width:250px;
+      }
+
+      @media (max-width: 1280px) {
+        /*Hide Menu & Show Hamburger same position next to logo */
+        .showRD {
+          display: flex;
+        }
+        .openNav{
+            display: flex;
+        }
+        .nav {
+          width: 0px;
+          position: fixed;
+          z-index: 50;
+          background-color: white;
+          height: 100%;
+        }
+        .content-cov {
+          width: 100%;
+          margin: 0px;
+        }
+      }
+      @media (min-width: 1281px) {
+        .nav {
+          width: 250px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav" id="nav">
+    
+      <img
+        class="showRD"
+        src="https://www.schweighoferweine.at/weine/WeinLogo.png"
+        alt="Description of img x"
+        onclick="window.location.href='https://www.schweighoferweine.at';"
+      />
+      <br />
+      <li class="home-Link" onclick="switchPage('shop')">
+        SchweighoferWeine.at
+      </li>
+      <li onclick="switchPage('shop')">Shop</li>
+      <ul>
+        <li onclick="switchPage('checkout'); generateCheckoutTable();">
+          Checkout - Kasse
+        </li>
+      </ul>
+      <li onclick="switchPage('inProduction')">News & Termine</li>
+      <li onclick="switchPage('inProduction')">Weingut</li>
+      <li onclick="switchPage('inProduction')">Geschichte</li>
+      <li onclick="switchPage('inProduction')">Fotogalerie</li>
+      <li onclick="switchPage('oldtimerRacing')">Traktorrennen & Location</li>
+      <li onclick="switchPage('containerStorage')">Container storage</li>
+      <li onclick="switchPage('inProduction')">Containerhouses</li>
+    </div>
+
+    <div class="openNav">
+       
+        <img  id="toggleIcon" src="./bars-solid.svg" onclick="toggleSidebar()" />
+     
+    </div>
+    <div class="showRD" id="showRD">
+     
+        <h2 style="margin-left: auto;">schweighoferweine.at</h2>
+        <img
+          src="https://www.schweighoferweine.at/weine/WeinLogo.png"
+          alt="Description of img"
+          onclick="window.location.href='https://www.schweighoferweine.at';"
+        />
+    
+    </div>
+    <script>
+      function toggleSidebar() {
+
+        let icon = document.getElementById("toggleIcon");
+
+    if (icon.src.includes("bars-solid.svg")) {
+        icon.src = "./xmark-solid.svg"; // Change to close icon
+        icon.style.transform = "rotate(180deg)"; // Rotate smoothly
+    } else {
+        icon.src = "./bars-solid.svg"; // Change back to menu icon
+        icon.style.transform = "rotate(0deg)"; // Reset rotation
+    }
+        let sidebar= document.getElementById("nav");
+        let header = document.getElementById("showRD");
+        sidebar.classList.toggle("active");
+        header.classList.toggle("hidden"); // Hide or show the head
+      }
+    </script>
+  </body>
+</html>
